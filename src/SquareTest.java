@@ -4,13 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SquareTest
-{
+public class SquareTest {
     /**
      * Default constructor for test class SquareTest
      */
-    public SquareTest()
-    {
+    public SquareTest() {
     }
 
     /**
@@ -19,8 +17,7 @@ public class SquareTest
      * Called before every test case method.
      */
     @Before
-    public void setUp()
-    {
+    public void setUp() {
     }
 
     /**
@@ -29,13 +26,11 @@ public class SquareTest
      * Called after every test case method.
      */
     @After
-    public void tearDown()
-    {
+    public void tearDown() {
     }
 
     @Test
-    public void testAccessors()
-    {
+    public void testAccessors() {
         Square sq = new Square(2, 3, Square.WALL);
         assertEquals(2, sq.getRow());
         assertEquals(3, sq.getCol());
@@ -43,8 +38,7 @@ public class SquareTest
     }
 
     @Test
-    public void testToString()
-    {
+    public void testToString() {
         Square sq = new Square(2, 3, Square.WALL);
         assertEquals("#", sq.toString());
         sq = new Square(2, 3, Square.START);
@@ -56,8 +50,7 @@ public class SquareTest
     }
 
     @Test
-    public void testEquals()
-    {
+    public void testEquals() {
         Square sq1 = new Square(2, 3, Square.WALL);
         Square sq2 = new Square(2, 3, Square.WALL);
         assertEquals(sq1, sq2);
@@ -72,24 +65,3 @@ public class SquareTest
         assertNotEquals(sq1, sq2);
     }
 }
-white_check_mark
-eyes
-raised_hands
-
-
-
-
-
-
-
-Send a message to software-engineering
-
-
-
-
-
-
-
-
-
-
