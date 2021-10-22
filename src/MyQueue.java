@@ -59,7 +59,7 @@ public class MyQueue<T> implements QueueADT<T> {
         }
         else
         {
-            int count = 0;
+            int count = 1;
             Node current = this.head;
             while(current.next != null)
             {
