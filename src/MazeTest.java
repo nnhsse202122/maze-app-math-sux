@@ -11,15 +11,15 @@ public class MazeTest {
     public void testLoadMaze()
     {
         Maze m = new Maze();
-        assertEquals(true,m.loadMaze("maze-2"));
-        assertEquals(false,m.loadMaze("maze-invalid"));
-        assertEquals(false, m.loadMaze("fake-maze"));
+        assertEquals(true,m.loadMaze("src/maze-2"));
+        assertEquals(false,m.loadMaze("src/maze-invalid"));
+        assertEquals(false, m.loadMaze("src/fake-maze"));
     }
     @Test
     public void testGetNeigbors()
     {
         Maze m = new Maze();
-        boolean loaded = m.loadMaze("maze-2");
+        boolean loaded = m.loadMaze("src/maze-2");
         assertEquals(true, loaded);
         ArrayList<Square> neigbors = new ArrayList<Square>();
         Square case1 = new Square(5,11,1);
@@ -46,7 +46,7 @@ public class MazeTest {
     public void testStartFinish()
     {
         Maze m = new Maze();
-        boolean loaded = m.loadMaze("maze-2");
+        boolean loaded = m.loadMaze("src/maze-2");
         assertEquals(true,loaded);
         Square start = new Square(6,4,2);
         assertEquals(start,m.getStart());
@@ -56,9 +56,9 @@ public class MazeTest {
     @Test
     public void testToString()
     {
-        String expected = "______#______\n##_#######_#_\n_#_________#_\n_#_##__###_#_\n___#_____#_#_\n_#####_#_#_#_\n____S__#__#E_";
+        String expected = "______#______\n##_#######_#_\n_#_________#_\n_#_##__###_#_\n___#_____#_#_\n_#####_#_#_#_\n____S__#__#E_\n";
         Maze m = new Maze();
-        boolean loaded = m.loadMaze("maze-2");
+        boolean loaded = m.loadMaze("src/maze-2");
         assertEquals(true, loaded);
         assertEquals(expected,m.toString());
     }
