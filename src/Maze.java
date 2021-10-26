@@ -1,14 +1,15 @@
-import java.lang.StringBuilder
+import java.io.File;
+import java.io.IOException;
+import java.lang.StringBuilder;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.NoSuchElementException;
 
 public class Maze {
 
     private Square[][] maze;
     
-    public Maze()
-    {
 
-    }
 
     boolean loadMaze(String fname)
     {
@@ -27,10 +28,17 @@ public class Maze {
                 this.maze[row][col] = new Square(row, col, in.nextInt());
             }
         }
+        in.close();
+        return true;
     }
     catch( IOException exception )
     {
         System.out.println( "The specified file: " + fname + " was not found." );
+        return false;
+    }
+    catch( NoSuchElementException exception)
+    {
+        System.out.println("The File is invalid");
         return false;
     }
 
@@ -61,12 +69,12 @@ public class Maze {
             neighbors.add(this.maze[sq.getRow()][sq.getCol()-1]);
         }
 
-        return neighbors
+        return neighbors;
     }
 
     Square getStart()
     {
-        for(int r = 0; r < this.maze.length, r++)
+        for(int r = 0; r < this.maze.length; r++)
         {
             for(int c = 0; c < this.maze[0].length; c++)
             {
@@ -76,11 +84,12 @@ public class Maze {
                 }
             }
         }
+        return null;
     }
 
     Square getFinish()
     {
-        for(int r = 0; r < this.maze.length, r++)
+        for(int r = 0; r < this.maze.length; r++)
         {
             for(int c = 0; c < this.maze[0].length; c++)
             {
@@ -90,6 +99,7 @@ public class Maze {
                 }
             }
         }
+        return null;
     }
 
     void reset() // what are we reseting
@@ -97,16 +107,17 @@ public class Maze {
         
     }
     
-    String toString()
+    @Override
+    public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        for(int r = 0; r < this.maze.length, r++)
+        for(int r = 0; r < this.maze.length; r++)
         {
             for(int c = 0; c < this.maze[0].length; c++)
             {
                 sb.append(maze[r][c].toString());
             }
-            sb.append("\n")
+            sb.append("\n");
         }
         String s = new String(sb);
         return s;
