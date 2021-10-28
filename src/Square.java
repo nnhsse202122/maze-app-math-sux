@@ -8,6 +8,8 @@ public class Square
     private int type;
     private int row;
     private int col;
+    private boolean explored;
+    private Square previous;
 
     /**
      * Constructor for objects of class Square
@@ -22,6 +24,8 @@ public class Square
         this.row = initialRow;
         this.col = initialCol;
         this.type = initialType;
+        this.explored = false;
+        this.previous = null; 
     }
 
     public int getType()
@@ -37,6 +41,24 @@ public class Square
     public int getCol()
     {
         return this.col;
+    }
+    public boolean getExplored()
+    {
+        return this.explored;
+    }
+    public void explore()
+    {
+        this.explored = true;
+    }
+
+    public Square getPrevious()
+    {
+        return this.previous;
+    }
+
+    public void setPrevious(Square sq)
+    {
+        this.previous = sq;
     }
 
     @Override
