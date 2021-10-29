@@ -18,6 +18,7 @@ public abstract class MazeSolver {
         this.m = maze;
         this.solved = false;
         this.valid = false;
+        this.path = "";
         this.makeEmpty();
         this.add(this.m.getStart());
     }
@@ -77,6 +78,8 @@ public abstract class MazeSolver {
 
     public void solve()
     {
-        
+        while(!this.isSolved()){
+            step();
+        }
     }
 }
