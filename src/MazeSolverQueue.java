@@ -1,10 +1,10 @@
-public class MazeQueueSolver extends MazeSolver{
+public class MazeSolverQueue extends MazeSolver{
     private Maze m;
     private String path;
     private boolean solved;
     private boolean valid;
     private MyQueue<Square> queue;
-    public MazeQueueSolver(Maze maze)
+    public MazeSolverQueue(Maze maze)
     {
         super(maze);
     }

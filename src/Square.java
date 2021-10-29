@@ -10,7 +10,8 @@ public class Square
     private int col;
     private boolean explored;
     private Square previous;
-
+    private boolean onWorkList;
+    private boolean onFinalPath;
     /**
      * Constructor for objects of class Square
      * 
@@ -25,7 +26,9 @@ public class Square
         this.col = initialCol;
         this.type = initialType;
         this.explored = false;
-        this.previous = null; 
+        this.previous = null;
+        this.onWorkList = false;
+        this.onFinalPath = false;
     }
 
     public int getType()
@@ -48,9 +51,17 @@ public class Square
     }
     public void explore()
     {
+        
         this.explored = true;
     }
-
+    public void putOnWorklist()
+    {
+        this.onWorkList = true;
+    }
+    public void putOnFinalPath()
+    {
+        this.onFinalPath = true;
+    }
     public Square getPrevious()
     {
         return this.previous;
@@ -120,6 +131,9 @@ public class Square
         return (this.row == otherSq.row) &&
                 (this.col == otherSq.col) &&
                 (this.type == otherSq.type);
+    }
+    public void reset(){
+        
     }
 }
 
