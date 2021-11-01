@@ -1,8 +1,5 @@
 public class MazeSolverQueue extends MazeSolver{
-    private Maze m;
-    private String path;
-    private boolean solved;
-    private boolean valid;
+    
     private MyQueue<Square> queue;
     public MazeSolverQueue(Maze maze)
     {

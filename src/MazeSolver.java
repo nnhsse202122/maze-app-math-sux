@@ -53,20 +53,30 @@ public abstract class MazeSolver {
             this.solved = true;
             this.valid = true;
             Square current = working;
+            MyStack<String> reverser= new MyStack<String>();
             while(current.getPrevious()!=null)
             {
-                String s = this.path+ ","+ "[" + current.getCol() + ","+current.getRow()+"]";
-                this.path = s;
+                current.putOnFinalPath();
+                reverser.push("["+current.getRow()+","+current.getCol()+"]");
+                
                 current = current.getPrevious();
+            }
+            while(!reverser.isEmpty()){
+                if(reverser.size() > 1){
+                    this.path = this.path + reverser.pop() + ",";
+                } else {
+                    this.path = this.path + reverser.pop();
+                }
             }
             return working;
         }
         ArrayList<Square> neighbors = this.m.getNeighbors(working);
         for(Square sq: neighbors)
         {
-            if(!sq.getExplored())
+            if(!sq.getExplored() && (sq.getType() == 0 || sq.getType() == 3))
             {
                 this.add(sq);
+                sq.putOnWorklist();
                 sq.setPrevious(working);
             }
         }

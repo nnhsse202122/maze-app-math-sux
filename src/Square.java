@@ -81,7 +81,18 @@ public class Square
         {
             case Square.SPACE:
             {
-                str = "_";
+                if(!this.getExplored() && !this.onWorkList){
+                    str = "_";
+                }
+                if(this.onWorkList && !this.getExplored()){
+                    str = "█";
+                }
+                if(this.getExplored()){
+                    str = "▒";
+                }
+                if(this.onFinalPath){
+                    str = "X";
+                }
                 break;
             }
             case Square.WALL:
@@ -133,7 +144,10 @@ public class Square
                 (this.type == otherSq.type);
     }
     public void reset(){
-        
+        this.explored = false;
+        this.previous = null;
+        this.onWorkList = false;
+        this.onFinalPath = false;
     }
 }
 
