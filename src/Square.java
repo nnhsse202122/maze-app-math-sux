@@ -82,13 +82,13 @@ public class Square
             case Square.SPACE:
             {
                 if(!this.getExplored() && !this.onWorkList){
-                    str = "_";
+                    str = " ";
                 }
                 if(this.onWorkList && !this.getExplored()){
-                    str = "█";
+                    str = "▒";
                 }
                 if(this.getExplored()){
-                    str = "▒";
+                    str = "|";
                 }
                 if(this.onFinalPath){
                     str = "X";
