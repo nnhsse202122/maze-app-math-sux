@@ -32,7 +32,14 @@ public abstract class MazeSolver {
     {
         if(this.isSolved())
         {
-            return this.path;
+            if(this.valid)
+            {
+                return this.path;
+            }
+            else 
+            {
+                return "No valid path";
+            }
         }
         else{
             return "No path";
