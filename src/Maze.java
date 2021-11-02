@@ -104,7 +104,13 @@ public class Maze {
 
     void reset() // what are we reseting
     {
-        
+        for(int r = 0; r < this.maze.length; r++)
+        {
+            for(int c = 0; c < this.maze[0].length; c++)
+            {
+                this.maze[r][c].reset();
+            }
+        }
     }
     
     @Override

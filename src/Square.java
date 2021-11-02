@@ -8,7 +8,10 @@ public class Square
     private int type;
     private int row;
     private int col;
-
+    private boolean explored;
+    private Square previous;
+    private boolean onWorkList;
+    private boolean onFinalPath;
     /**
      * Constructor for objects of class Square
      * 
@@ -22,6 +25,10 @@ public class Square
         this.row = initialRow;
         this.col = initialCol;
         this.type = initialType;
+        this.explored = false;
+        this.previous = null;
+        this.onWorkList = false;
+        this.onFinalPath = false;
     }
 
     public int getType()
@@ -38,6 +45,32 @@ public class Square
     {
         return this.col;
     }
+    public boolean getExplored()
+    {
+        return this.explored;
+    }
+    public void explore()
+    {
+        
+        this.explored = true;
+    }
+    public void putOnWorklist()
+    {
+        this.onWorkList = true;
+    }
+    public void putOnFinalPath()
+    {
+        this.onFinalPath = true;
+    }
+    public Square getPrevious()
+    {
+        return this.previous;
+    }
+
+    public void setPrevious(Square sq)
+    {
+        this.previous = sq;
+    }
 
     @Override
     public String toString()
@@ -48,7 +81,18 @@ public class Square
         {
             case Square.SPACE:
             {
-                str = "_";
+                if(!this.getExplored() && !this.onWorkList){
+                    str = "_";
+                }
+                if(this.onWorkList && !this.getExplored()){
+                    str = "█";
+                }
+                if(this.getExplored()){
+                    str = "▒";
+                }
+                if(this.onFinalPath){
+                    str = "X";
+                }
                 break;
             }
             case Square.WALL:
@@ -98,6 +142,12 @@ public class Square
         return (this.row == otherSq.row) &&
                 (this.col == otherSq.col) &&
                 (this.type == otherSq.type);
+    }
+    public void reset(){
+        this.explored = false;
+        this.previous = null;
+        this.onWorkList = false;
+        this.onFinalPath = false;
     }
 }
 
