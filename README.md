@@ -37,6 +37,7 @@ Maze Lab
     * You and your partner must issue pull requests to incorporate changes in your branch into master
 
 * Edit README.md in your repository to Include a reflection in which you reflect on you and your partners implementation of the GitHub best practices for team development. What did you or your partner do well? What do you or your partner need to improve next time? What would you do differently next time?
+   *Me and my partner were pretty good on committing to github frequently. However, we sometimes made branches from the wrong parent, in part because we kept forgetting to go back to main once we make the pull request/merge. Next time, we would like to better manage branches and pull requests
 
 * This lab is recorded as two labs in the gradebook. One score is based on satisfying the requirements for the Maze lab. The other score is based on demonstrating GitHub best practices.
 
@@ -44,7 +45,8 @@ Maze Lab
 
 1. (**Teammate A & B**) create square branch from master; implement Square class skeleton in square branch; implement Square class unit test; run tests (verify fails); implement Square class; run tests (verify passes); pull into master (**pair programming**)
 
-2. (**Teammate A & B**) create mazeSkeleton branch from master; implement Maze class skeleton in mazeSkeleton branch; pull into master (**pair programming**)At the same time:
+2. (**Teammate A & B**) create mazeSkeleton branch from master; implement Maze class skeleton in mazeSkeleton branch; pull into master (**pair programming**)
+At the same time:
 
     * (**Teammate B**) create mazeTest branch from master; implement Maze unit test in mazeTest branch (NOTE:  There is a maze-invalid file that contains an improperly formatted maze and should be used in the test to ensure exceptions do not go unhandled.); run test (verify fails); pull into master
 
